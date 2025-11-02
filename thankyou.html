@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gracias - Reporte Anónimo de Extorsión</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+        padding: 50px 40px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .success-icon {
+        font-size: 80px;
+        margin-bottom: 24px;
+        animation: bounce 0.6s ease-in-out;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      h1 {
+        color: #2d3748;
+        font-size: 32px;
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
+
+      .message {
+        color: #4a5568;
+        font-size: 18px;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .info-box {
+        background: #edf2f7;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin-bottom: 32px;
+        border-radius: 8px;
+        text-align: left;
+      }
+
+      .info-box h3 {
+        color: #2d3748;
+        font-size: 18px;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+
+      .info-box p {
+        color: #4a5568;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin: 8px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .btn-secondary:hover {
+        background: #edf2f7;
+      }
+
+      .footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        color: #718096;
+        font-size: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 30px 24px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+        .message {
+          font-size: 16px;
+        }
+        .btn {
+          display: block;
+          margin: 8px 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="success-icon">✓</div>
+
+      <h1>¡Gracias por tu reporte!</h1>
+
+      <p class="message">
+        Tu información ha sido recibida de forma anónima y segura. Contribuyes a
+        generar estadísticas valiosas para combatir la extorsión en Perú.
+      </p>
+
+      <div class="info-box">
+        <h3>¿Qué pasa ahora con tu información?</h3>
+        <p>• Tus datos se agregan con otros reportes de forma anónima</p>
+        <p>• Se aplican técnicas de privacidad para proteger tu identidad</p>
+        <p>• Las estadísticas públicas se actualizan periódicamente</p>
+        <p>
+          • Los datos abiertos están disponibles para investigadores y
+          autoridades
+        </p>
+      </div>
+
+      <div class="info-box" style="background: #fff5f5; border-color: #f56565">
+        <h3 style="color: #742a2a">
+          ⚠️ Importante: Este no es una denuncia oficial
+        </h3>
+        <p style="color: #742a2a">
+          Este formulario solo recopila estadísticas anónimas. Si deseas hacer
+          una denuncia formal o necesitas ayuda, aquí están los canales
+          oficiales:
+        </p>
+      </div>
+
+      <div class="info-box" style="background: #fffaf0; border-color: #ed8936">
+        <h3 style="color: #7c2d12">📞 ¿Dónde y cómo denunciar?</h3>
+
+        <p style="color: #7c2d12; font-weight: 600; margin-top: 16px">
+          Emergencias:
+        </p>
+        <p style="color: #7c2d12">
+          • <strong>105</strong> - Policía Nacional (emergencias)<br />
+        </p>
+
+        <p style="color: #7c2d12; font-weight: 600; margin-top: 16px">
+          Denuncias de Extorsión:
+        </p>
+        <p style="color: #7c2d12">
+          • <strong>1818</strong> - Línea gratuita Ministerio Público<br />
+          • <strong>Central de Denuncias:</strong> Av. Abancay cdra. 5 s/n,
+          Cercado de Lima<br />
+          • <strong>Web:</strong>
+          <a
+            href="https://www.fiscalia.gob.pe"
+            target="_blank"
+            style="color: #c05621"
+            >www.fiscalia.gob.pe</a
+          >
+        </p>
+
+        <p style="color: #7c2d12; font-weight: 600; margin-top: 16px">
+          División de Investigación de Extorsión (DIVEXT-PNP):
+        </p>
+        <p style="color: #7c2d12">
+          • <strong>Teléfono:</strong> (01) 431-8898 / 431-9214<br />
+          • <strong>Dirección:</strong> Av. España 323, Cercado de Lima<br />
+          • Puedes acudir directamente a cualquier comisaría de tu distrito
+        </p>
+
+        <p style="color: #7c2d12; font-weight: 600; margin-top: 16px">
+          Denuncia en Línea:
+        </p>
+        <p style="color: #7c2d12">
+          •
+          <a
+            href="https://denuncias.mininter.gob.pe/registro"
+            target="_blank"
+            style="color: #c05621"
+            >Plataforma de Denuncias - Ministerio del Interior</a
+          ><br />
+          •
+          <a
+            href="https://apps.mpfn.gob.pe/iddenuncia/"
+            target="_blank"
+            style="color: #c05621"
+            >Sistema de Denuncias Virtuales - Ministerio Público</a
+          >
+        </p>
+      </div>
+
+      <div class="info-box" style="background: #f0f9ff; border-color: #3b82f6">
+        <h3 style="color: #1e40af">🤝 Organizaciones de Apoyo y Ayuda</h3>
+
+        <p style="color: #1e40af">
+          • <strong>Colectivo País Seguro (PAS)</strong><br />
+          &nbsp;&nbsp;Organización ciudadana que busca combatir el crimen
+          organizado y la minería ilegal<br />
+          &nbsp;&nbsp;Web:
+          <a
+            href="https://queremospas.pe"
+            target="_blank"
+            style="color: #2563eb"
+            >queremospas.pe</a
+          >
+        </p>
+      </div>
+
+      <a href="stats.html" class="btn btn-primary">
+        Ver Estadísticas Públicas
+      </a>
+
+      <a href="index.html" class="btn btn-secondary"> Volver al Inicio </a>
+
+      <div class="footer">
+        Tu reporte ayuda a visibilizar un problema que afecta a miles de
+        peruanos
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Reporte Anónimo de Extorsión - Perú</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 700px;
+        width: 100%;
+        padding: 40px;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        color: #2d3748;
+        font-size: 26px;
+        margin-bottom: 12px;
+        font-weight: 700;
+      }
+
+      .header .subtitle {
+        color: #718096;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .privacy-badge {
+        background: #edf2f7;
+        border-left: 4px solid #667eea;
+        padding: 16px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+      }
+
+      .privacy-badge strong {
+        color: #2d3748;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 15px;
+      }
+
+      .privacy-badge ul {
+        margin: 8px 0 0 20px;
+        color: #4a5568;
+        font-size: 13px;
+      }
+
+      .privacy-badge li {
+        margin: 4px 0;
+      }
+
+      .progress-bar {
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .step {
+        display: none;
+      }
+
+      .step.active {
+        display: block;
+        animation: fadeIn 0.3s ease-in;
+      }
+
+      .question {
+        margin-bottom: 28px;
+      }
+
+      .question-label {
+        display: block;
+        color: #2d3748;
+        font-weight: 600;
+        margin-bottom: 16px;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .radio-option {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding: 14px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: white;
+      }
+
+      .radio-option:hover {
+        border-color: #cbd5e0;
+        background: #f7fafc;
+      }
+
+      .radio-option.selected {
+        border-color: #667eea;
+        background: #edf2f7;
+      }
+
+      .radio-option input[type="radio"] {
+        margin-right: 12px;
+        margin-top: 2px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .radio-option label {
+        cursor: pointer;
+        flex: 1;
+        font-size: 15px;
+        color: #2d3748;
+      }
+
+      select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: inherit;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      select:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      select:disabled {
+        background: #f7fafc;
+        cursor: not-allowed;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .btn {
+        padding: 14px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary {
+        flex: 1;
+        background: #e2e8f0;
+        color: #2d3748;
+      }
+
+      .btn-secondary:hover:not(:disabled) {
+        background: #cbd5e0;
+      }
+
+      .btn-primary {
+        flex: 2;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .loading {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 0.8s linear infinite;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .message {
+        padding: 16px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-size: 15px;
+        text-align: center;
+        animation: slideDown 0.3s ease;
+      }
+
+      .message.success {
+        background: #c6f6d5;
+        color: #22543d;
+        border: 2px solid #9ae6b4;
+      }
+
+      .message.error {
+        background: #fed7d7;
+        color: #742a2a;
+        border: 2px solid #fc8181;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        color: #718096;
+        font-size: 13px;
+      }
+
+      .hp-field {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 24px;
+        }
+        .header h1 {
+          font-size: 22px;
+        }
+        .button-group {
+          flex-direction: column;
+        }
+        .btn-secondary,
+        .btn-primary {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🛡️ Reporte Anónimo de Extorsión</h1>
+        <p class="subtitle">
+          Ayuda a generar estadísticas para combatir la extorsión en Perú
+        </p>
+      </div>
+
+      <div class="privacy-badge">
+        <strong>🔒 Tu privacidad está protegida</strong>
+        <ul>
+          <li>No guardamos tu IP, nombre ni teléfono</li>
+          <li>Puedes usar modo incógnito de tu navegador</li>
+          <li>Solo recolectamos datos estadísticos agregados</li>
+        </ul>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+      </div>
+
+      <form id="form">
+        <!-- Honeypot -->
+        <input
+          type="text"
+          name="website"
+          id="website"
+          class="hp-field"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <!-- Paso 1: Pregunta principal -->
+        <div class="step active" data-step="1">
+          <div class="question">
+            <label class="question-label">
+              1. ¿Actualmente, usted, su familia o su negocio, es víctima de
+              extorsión?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="esVictima"
+                  value="si"
+                  id="victima_si"
+                />
+                <label for="victima_si">SÍ, actualmente soy víctima de extorsión</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="esVictima"
+                  value="no"
+                  id="victima_no"
+                />
+                <label for="victima_no">Aún NO soy víctima de extorsión</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="esVictima"
+                  value="pasado"
+                  id="victima_pasado"
+                />
+                <label for="victima_pasado">Lo fui en el pasado</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2: Tiempo transcurrido desde que fue víctima -->
+        <div class="step" data-step="2-tiempo-pasado">
+          <div class="question">
+            <label class="question-label">
+              2. ¿Hace cuánto tiempo que pasó?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="tiempoPasado"
+                  value="menos_6_meses"
+                  id="tiempo_1"
+                />
+                <label for="tiempo_1">Hace menos de 6 meses</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="tiempoPasado"
+                  value="mas_6_meses"
+                  id="tiempo_2"
+                />
+                <label for="tiempo_2">Hace más de 6 meses</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="tiempoPasado"
+                  value="mas_1_año"
+                  id="tiempo_3"
+                />
+                <label for="tiempo_3">Hace más de un año</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3: Si fue en el pasado, cómo dejaron de extorsionar -->
+        <div class="step" data-step="3-pasado">
+          <div class="question">
+            <label class="question-label">
+              3. ¿Cómo dejaron de extorsionarlo?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoTermino"
+                  value="pague"
+                  id="termino_pague"
+                />
+                <label for="termino_pague">Pagué lo solicitado</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoTermino"
+                  value="desaparecieron"
+                  id="termino_desap"
+                />
+                <label for="termino_desap">Desaparecieron</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoTermino"
+                  value="me_mude"
+                  id="termino_mude"
+                />
+                <label for="termino_mude">Mudé a mi familia o negocio</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoTermino"
+                  value="cerre_negocio"
+                  id="termino_cerre"
+                />
+                <label for="termino_cerre">Cerré mi negocio</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoTermino"
+                  value="atrapados"
+                  id="termino_atrap"
+                />
+                <label for="termino_atrap"
+                  >Los criminales fueron atrapados</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2-no: Si dijo que NO es víctima -->
+        <div class="step" data-step="2-no">
+          <div class="question">
+            <label class="question-label">
+              2. ¿Ha sido testigo de un caso de extorsión?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="esTestigo"
+                  value="si"
+                  id="testigo_si"
+                />
+                <label for="testigo_si">Sí</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="esTestigo"
+                  value="no"
+                  id="testigo_no"
+                />
+                <label for="testigo_no">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3: Rubro (solo si es víctima actual o pasada) -->
+        <div class="step" data-step="3">
+          <div class="question">
+            <label class="question-label"> 2. ¿A qué rubro se dedica? </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="transporte"
+                  id="rubro_transporte"
+                />
+                <label for="rubro_transporte">Transporte</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="espectaculo"
+                  id="rubro_espec"
+                />
+                <label for="rubro_espec">Espectáculo</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="construccion"
+                  id="rubro_const"
+                />
+                <label for="rubro_const">Construcción</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="educacion"
+                  id="rubro_educ"
+                />
+                <label for="rubro_educ"
+                  >Educación (Nido, Colegio, Instituto, Otro)</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="restaurante"
+                  id="rubro_rest"
+                />
+                <label for="rubro_rest">Restaurante, Hostal, Recreo</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="rubro"
+                  value="pequeno_negocio"
+                  id="rubro_peq"
+                />
+                <label for="rubro_peq"
+                  >Pequeño negocio (Bodega, Peluquería, Ferretería, Lavandería,
+                  Otro)</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 4: Frecuencia de pago (solo víctimas actuales) -->
+        <div class="step" data-step="4">
+          <div class="question">
+            <label class="question-label">
+              3. ¿Con qué frecuencia se ve obligado a pagar cupo?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="diario"
+                  id="freq_diario"
+                />
+                <label for="freq_diario">Todos los días</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="semanal"
+                  id="freq_sem"
+                />
+                <label for="freq_sem">Una vez por semana</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="quincenal"
+                  id="freq_quin"
+                />
+                <label for="freq_quin">Una vez cada 15 días</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="mensual"
+                  id="freq_mens"
+                />
+                <label for="freq_mens">Una vez al mes</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="frecuencia"
+                  value="unica"
+                  id="freq_unic"
+                />
+                <label for="freq_unic">Fue una única vez</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 5: Monto -->
+        <div class="step" data-step="5">
+          <div class="question">
+            <label class="question-label">
+              4. ¿Cuál es el monto solicitado cada vez?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="monto"
+                  value="menos_100"
+                  id="monto_1"
+                />
+                <label for="monto_1">Menos de S/ 100</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="monto" value="100_500" id="monto_2" />
+                <label for="monto_2">Entre S/ 100 y S/ 500</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="monto"
+                  value="500_2000"
+                  id="monto_3"
+                />
+                <label for="monto_3">Entre S/ 500 y S/ 2,000</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="monto"
+                  value="mas_2000"
+                  id="monto_4"
+                />
+                <label for="monto_4">Más de S/ 2,000</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 6: Banda -->
+        <div class="step" data-step="6">
+          <div class="question">
+            <label class="question-label">
+              5. ¿Los extorsionadores se han identificado como alguna banda?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="los_pulpos"
+                  id="banda_1"
+                />
+                <label for="banda_1">Los Pulpos</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="malditos_bayovar"
+                  id="banda_2"
+                />
+                <label for="banda_2">Los Malditos de Bayóvar</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="tren_aragua"
+                  id="banda_3"
+                />
+                <label for="banda_3">Tren de Aragua</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="los_pepes"
+                  id="banda_4"
+                />
+                <label for="banda_4">Los Pepes</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="malditos_huascar"
+                  id="banda_5"
+                />
+                <label for="banda_5">Los Malditos de Huáscar</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="comando_vermelho"
+                  id="banda_6"
+                />
+                <label for="banda_6">Comando Vermelho</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="los_piratas"
+                  id="banda_7"
+                />
+                <label for="banda_7">Los Piratas</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="anonimus_bayovar"
+                  id="banda_8"
+                />
+                <label for="banda_8">Los Anonimus de Bayóvar</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="pulpos_nueva_gen"
+                  id="banda_9"
+                />
+                <label for="banda_9">Los Pulpos - Nueva Generación</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="los_parqueros"
+                  id="banda_10"
+                />
+                <label for="banda_10">Los Parqueros</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="banda" value="otro" id="banda_11" />
+                <label for="banda_11">Otro</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="banda"
+                  value="no_identificado"
+                  id="banda_12"
+                />
+                <label for="banda_12">No se han identificado</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 7: Atentados -->
+        <div class="step" data-step="7">
+          <div class="question">
+            <label class="question-label">
+              6. ¿Los extorsionadores han atentado contra su vida o negocio?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="atentado"
+                  value="explosivos"
+                  id="atentado_1"
+                />
+                <label for="atentado_1">Sí, con explosivos</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="atentado"
+                  value="arma_fuego"
+                  id="atentado_2"
+                />
+                <label for="atentado_2">Sí, con arma de fuego</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="atentado"
+                  value="arma_blanca"
+                  id="atentado_3"
+                />
+                <label for="atentado_3">Sí, con arma blanca o violencia física</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="atentado"
+                  value="aun_no"
+                  id="atentado_4"
+                />
+                <label for="atentado_4">Aún no</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 8: Evidencias -->
+        <div class="step" data-step="8">
+          <div class="question">
+            <label class="question-label">
+              7. ¿Tiene evidencias de la extorsión como fotos, videos, audios,
+              cartas o chats?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="tieneEvidencias"
+                  value="si"
+                  id="evid_si"
+                />
+                <label for="evid_si">Sí</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="tieneEvidencias"
+                  value="no"
+                  id="evid_no"
+                />
+                <label for="evid_no">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 9: Denuncia policial -->
+        <div class="step" data-step="9">
+          <div class="question">
+            <label class="question-label">
+              8. ¿Ha puesto la denuncia policial?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="pusoDenuncia"
+                  value="si"
+                  id="denuncia_si"
+                />
+                <label for="denuncia_si">Sí</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="pusoDenuncia"
+                  value="no"
+                  id="denuncia_no"
+                />
+                <label for="denuncia_no">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 10a: Cómo hizo la denuncia (si denunció) -->
+        <div class="step" data-step="10-si-denuncia">
+          <div class="question">
+            <label class="question-label"> 9. ¿Cómo hizo la denuncia? </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoD enuncia"
+                  value="comisaria"
+                  id="como_denuncia_1"
+                />
+                <label for="como_denuncia_1"
+                  >En la comisaría de mi barrio</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoDenuncia"
+                  value="fiscalia"
+                  id="como_denuncia_2"
+                />
+                <label for="como_denuncia_2"
+                  >Ante el Ministerio Público - Fiscalía de la Nación</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="comoDenuncia"
+                  value="telefono_1818"
+                  id="como_denuncia_3"
+                />
+                <label for="como_denuncia_3"
+                  >Por teléfono a la línea 1818</label
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 11: Resultado de la denuncia -->
+        <div class="step" data-step="11">
+          <div class="question">
+            <label class="question-label">
+              10. ¿Cuál ha sido el resultado de su denuncia?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="resultadoDenuncia"
+                  value="captura_exitosa"
+                  id="result_1"
+                />
+                <label for="result_1"
+                  >Las investigaciones culminaron con la captura de los
+                  criminales</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="resultadoDenuncia"
+                  value="sin_resultados"
+                  id="result_2"
+                />
+                <label for="result_2"
+                  >Las investigaciones culminaron sin resultados</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="resultadoDenuncia"
+                  value="en_proceso"
+                  id="result_3"
+                />
+                <label for="result_3">Aún continúan las investigaciones</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 10b: Por qué no denunció -->
+        <div class="step" data-step="10-no-denuncia">
+          <div class="question">
+            <label class="question-label">
+              9. ¿Por qué no ha puesto la denuncia policial?
+            </label>
+            <div class="radio-group">
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="porqueNoDenuncia"
+                  value="temor"
+                  id="no_denuncia_1"
+                />
+                <label for="no_denuncia_1">Temor a represalias</label>
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="porqueNoDenuncia"
+                  value="policia_corrupta"
+                  id="no_denuncia_2"
+                />
+                <label for="no_denuncia_2"
+                  >La policía es corrupta o está coludida con los
+                  extorsionadores</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="porqueNoDenuncia"
+                  value="perdida_tiempo"
+                  id="no_denuncia_3"
+                />
+                <label for="no_denuncia_3"
+                  >Es una pérdida de tiempo, no soluciona nada</label
+                >
+              </div>
+              <div class="radio-option">
+                <input
+                  type="radio"
+                  name="porqueNoDenuncia"
+                  value="otro"
+                  id="no_denuncia_4"
+                />
+                <label for="no_denuncia_4">Otro</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso final: Ubicación -->
+        <div class="step" data-step="ubicacion">
+          <div class="question">
+            <label class="question-label">Ubicación del incidente</label>
+
+            <div style="margin-bottom: 16px">
+              <select name="departamento" id="departamento" required>
+                <option value="">-- Cargando departamentos... --</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 16px">
+              <select name="provincia" id="provincia" required disabled>
+                <option value="">-- Selecciona departamento primero --</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 16px">
+              <select name="distrito" id="distrito" required disabled>
+                <option value="">-- Selecciona provincia primero --</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="prevBtn"
+            style="display: none"
+          >
+            ← Anterior
+          </button>
+          <button type="button" class="btn btn-primary" id="nextBtn">
+            Siguiente →
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="submitBtn"
+            style="display: none"
+          >
+            Enviar reporte
+          </button>
+        </div>
+
+        <div id="message"></div>
+      </form>
+
+      <div class="footer">
+        Los datos son agregados y publicados de forma anónima para análisis
+        estadístico
+      </div>
+    </div>
+
+    <script src="form-logic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Estadísticas - Reporte Anónimo de Extorsión</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 700px;
+        width: 100%;
+        padding: 50px 40px;
+        text-align: center;
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .icon {
+        font-size: 80px;
+        margin-bottom: 24px;
+        opacity: 0.7;
+      }
+
+      h1 {
+        color: #2d3748;
+        font-size: 32px;
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        color: #718096;
+        font-size: 20px;
+        margin-bottom: 32px;
+        font-weight: 500;
+      }
+
+      .message {
+        color: #4a5568;
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .features {
+        background: #edf2f7;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 32px;
+        text-align: left;
+      }
+
+      .features h3 {
+        color: #2d3748;
+        font-size: 18px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .feature-list li {
+        color: #4a5568;
+        font-size: 15px;
+        margin: 12px 0;
+        padding-left: 28px;
+        position: relative;
+      }
+
+      .feature-list li::before {
+        content: "📊";
+        position: absolute;
+        left: 0;
+      }
+
+      .api-box {
+        background: #f0fff4;
+        border: 2px solid #9ae6b4;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 32px;
+        text-align: left;
+      }
+
+      .api-box h3 {
+        color: #22543d;
+        font-size: 16px;
+        margin-bottom: 12px;
+        font-weight: 600;
+      }
+
+      .api-box code {
+        display: block;
+        background: white;
+        padding: 12px;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #2d3748;
+        overflow-x: auto;
+        margin-top: 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        margin: 8px;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .btn-secondary:hover {
+        background: #edf2f7;
+      }
+
+      .footer {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        color: #718096;
+        font-size: 14px;
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          padding: 30px 24px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+        .subtitle {
+          font-size: 18px;
+        }
+        .btn {
+          display: block;
+          margin: 8px 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="icon">📈</div>
+
+      <h1>Estadísticas Públicas</h1>
+      <p class="subtitle">Próximamente</p>
+
+      <p class="message">
+        Estamos trabajando en un dashboard interactivo para visualizar las
+        estadísticas de extorsión en Perú. Aquí podrás ver mapas de calor,
+        gráficos temporales y análisis por región.
+      </p>
+
+      <div class="features">
+        <h3>Funcionalidades planeadas</h3>
+        <ul class="feature-list">
+          <li>Mapa de calor por departamentos, provincias y distritos</li>
+          <li>Gráficos de tendencias temporales</li>
+          <li>Estadísticas por rubro afectado</li>
+          <li>Identificación de bandas criminales por zona</li>
+          <li>Índice de denuncias vs casos reportados</li>
+          <li>Exportación de datos en CSV y JSON</li>
+        </ul>
+      </div>
+
+      <div class="api-box">
+        <h3>🔓 API de Datos Abiertos (ya disponible)</h3>
+        <p style="color: #22543d; font-size: 14px; margin-bottom: 8px">
+          Mientras tanto, puedes acceder directamente a los datos agregados a
+          través de nuestra API:
+        </p>
+        <code>GET http://localhost:3000/api/open-data</code>
+        <p
+          style="
+            color: #22543d;
+            font-size: 13px;
+            margin-top: 12px;
+            font-style: italic;
+          "
+        >
+          Los datos están anonimizados con privacidad diferencial y k-anonymity
+        </p>
+      </div>
+
+      <a href="form.html" class="btn btn-primary">
+        Reportar un Caso
+      </a>
+
+      <a href="index.html" class="btn btn-secondary"> Volver al Inicio </a>
+
+      <div class="footer">
+        Los datos abiertos ayudan a investigadores y autoridades a tomar
+        mejores decisiones
+      </div>
+    </div>
+  </body>
+</html>

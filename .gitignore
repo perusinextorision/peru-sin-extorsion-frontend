@@ -1,0 +1,27 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Node (si usas tools de build en el futuro)
+node_modules/
+package-lock.json
+
+# Environment (si decides agregar variables de entorno)
+.env
+.env.local
