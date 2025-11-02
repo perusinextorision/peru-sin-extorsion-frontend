@@ -3,6 +3,10 @@ const token = crypto.randomUUID();
 localStorage.setItem("anony_token", token);
 const start = Date.now();
 
+// Estado del backend
+let backendReady = false;
+let wakeUpAttempted = false;
+
 // Elementos del DOM
 const form = document.getElementById("form");
 const prevBtn = document.getElementById("prevBtn");
@@ -28,6 +32,38 @@ function showMessage(text, type) {
 
 function hideMessage() {
   messageDiv.style.display = "none";
+}
+
+// Función para despertar el backend (health check)
+async function wakeUpBackend() {
+  if (wakeUpAttempted) return;
+  wakeUpAttempted = true;
+
+  // Mostrar mensaje informativo
+  showMessage("⏳ Preparando el sistema, esto puede tomar unos segundos...", "info");
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+
+    const response = await fetch("/health", {
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeoutId);
+
+    if (response.ok) {
+      backendReady = true;
+      console.log("Backend despierto y listo");
+      // Ocultar mensaje después de 2 segundos
+      setTimeout(() => hideMessage(), 2000);
+    }
+  } catch (error) {
+    console.warn("Health check falló, pero continuaremos:", error.message);
+    // Ocultar mensaje de todos modos
+    hideMessage();
+    backendReady = false;
+  }
 }
 
 // Navegación de pasos
@@ -190,6 +226,11 @@ prevBtn.addEventListener("click", () => {
 // Manejo de clicks en opciones de radio para mejorar UX
 document.querySelectorAll(".radio-option").forEach((option) => {
   option.addEventListener("click", function () {
+    // Despertar backend en la primera interacción
+    if (!wakeUpAttempted) {
+      wakeUpBackend();
+    }
+
     const radio = this.querySelector('input[type="radio"]');
     if (radio) {
       radio.checked = true;
@@ -346,6 +387,12 @@ form.addEventListener("submit", async (e) => {
   };
 
   try {
+    // Si el backend no estaba listo, mostrar mensaje de espera
+    if (!backendReady) {
+      showMessage("⏳ Conectando con el servidor, por favor espera...", "info");
+      await wakeUpBackend();
+    }
+
     const r = await fetch("/api/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
